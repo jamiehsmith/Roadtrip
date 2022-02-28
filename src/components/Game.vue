@@ -1,19 +1,10 @@
 <template>
   <div>
-    <div class="header">
-      <el-input
-        class="input"
-        :placeholder="isLoading ? 'Game loading...' : 'How many poptarts?'"
-        v-model="input"
-        :disabled="isLoading"
-        clearable
-      />
-      <el-button :disabled="!input" @click="startGame"
-        >Gimme poptarts</el-button
-      >
-    </div>
-    <br /><br />
-    <Unity :unity="unityContext" width="600px" height="400px" />
+    <Unity
+      :unity="unityContext"
+      :width="`${window.width}px`"
+      :height="`${window.height}px`"
+    />
   </div>
 </template>
 
@@ -39,25 +30,40 @@ export default {
       input: '',
       isLoading: true,
       unityContext: Unity,
+      window: {
+        height: 1600,
+        width: 900,
+      },
     };
   },
 
   methods: {
-    startGame() {
-      if (isNaN(this.input)) {
-        alert('That\'s not a number, bozo');
-        return;
-      }
-      const numSquares = parseInt(this.input);
-      // Find Unity method "CreateSquares" and passes the numSquares argument to it.
-      Unity.send('Gameplay', 'CreateSquares', numSquares);
+    addEventListeners() {
+      window.addEventListener('resize', this.setGameSize);
+    },
+
+    setGameSize() {
+      // Resize game to full window
+      this.window.height = window.innerHeight;
+      this.window.width = window.innerWidth;
+    },
+
+    sendGameMessage() {
+      // For future us:
+      // Unity.send('Gameplay', 'CreateSquares', numSquares);
     },
   },
 
   created() {
+    this.setGameSize();
+    this.addEventListeners();
     Unity.on('progress', (percent) => console.log('Unity Loaded: ', percent))
       .on('created', () => (this.isLoading = false))
       .on('destroyed', () => console.log('Unity Instance: Destroyed.'));
+  },
+
+  destroyed() {
+    window.removeEventListener('resize', this.setGameSize);
   },
 };
 </script>
