@@ -25,16 +25,32 @@ export default {
     Unity: UnityWebgl.vueComponent,
   },
 
+  props: {
+    userAddress: {
+      type: String,
+      required: true,
+    },
+  },
+
   data() {
     return {
       input: '',
       isLoading: true,
       unityContext: Unity,
       window: {
-        height: 1600,
-        width: 900,
+        height: 1000,
+        width: 1400,
       },
     };
+  },
+
+  watch: {
+    isLoading() {
+      if (!this.isLoading) {
+        // Send login to Unity
+        Unity.send('EventSystem', 'Login', this.userAddress);
+      }
+    },
   },
 
   methods: {
@@ -46,11 +62,6 @@ export default {
       // Resize game to full window
       this.window.height = window.innerHeight;
       this.window.width = window.innerWidth;
-    },
-
-    sendGameMessage() {
-      // For future us:
-      // Unity.send('Gameplay', 'CreateSquares', numSquares);
     },
   },
 

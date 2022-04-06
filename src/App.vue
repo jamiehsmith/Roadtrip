@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Game v-if="isLoggedIn" />
+    <Game v-if="isLoggedIn" :userAddress="userAddress" />
     <div v-else class="login">
       <el-button @click="showMetamaskWindow = true">
         <img class="metamask-logo" src="./assets/metamask.png" />
