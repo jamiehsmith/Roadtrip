@@ -1,28 +1,30 @@
 <template>
   <div id="app">
-    <Game v-if="isLoggedIn" :userAddress="userAddress" />
+    <div v-if="isLoggedIn" class="container">
+      <Nav class="sidebar" />
+      <div class="content">
+        <router-view></router-view>
+      </div>
+    </div>
     <div v-else class="login">
       <el-button @click="showMetamaskWindow = true">
         <img class="metamask-logo" src="./assets/metamask.png" />
         Login to Metamask
       </el-button>
-      <vue-metamask
-        v-if="showMetamaskWindow"
-        @onComplete="metamaskLogin"
-      />
+      <vue-metamask v-if="showMetamaskWindow" @onComplete="metamaskLogin" />
     </div>
   </div>
 </template>
 
 <script>
-import Game from './components/Game.vue';
 import VueMetamask from 'vue-metamask';
+import Nav from './components/Nav';
 
 export default {
   name: 'App',
   components: {
-    Game,
     VueMetamask,
+    Nav,
   },
 
   data() {
@@ -61,6 +63,20 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 256px auto;
+  grid-template-areas: 'sidebar content';
+}
+
+.sidebar {
+  grid-area: sidebar;
+}
+
+.content {
+  grid-area: content;
 }
 
 .login {

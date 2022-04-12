@@ -19,7 +19,7 @@ const Unity = new UnityWebgl({
 });
 
 export default {
-  name: 'Game',
+  name: 'Map',
 
   components: {
     Unity: UnityWebgl.vueComponent,
