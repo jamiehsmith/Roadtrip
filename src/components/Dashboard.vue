@@ -1,7 +1,6 @@
 <template>
   <div>
     This is dashboard
-    <i class="el-icon-location"></i>
   </div>
 </template>
 

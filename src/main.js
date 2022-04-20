@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import App from './App.vue';
+import 'element-ui/lib/theme-chalk/index.css';
 import Element from 'element-ui';
 import VueRouter from 'vue-router';
 import Dashboard from './components/Dashboard';
@@ -10,11 +11,17 @@ import Pools from './components/Pools';
 import PrizeGames from './components/PrizeGames';
 import Marketplace from './components/Marketplace';
 import GameHistory from './components/GameHistory';
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faChartSimple } from '@fortawesome/free-solid-svg-icons';
+
+library.add(faChartSimple);
 
 Vue.config.productionTip = false;
 
 Vue.use(Element);
 Vue.use(VueRouter);
+Vue.component('font-awesome-icon', FontAwesomeIcon);
 
 const routes = [
   { path: '/dashboard', alias: '/', component: Dashboard },
