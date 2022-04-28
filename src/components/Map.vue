@@ -25,13 +25,6 @@ export default {
     Unity: UnityWebgl.vueComponent,
   },
 
-  props: {
-    userAddress: {
-      type: String,
-      required: true,
-    },
-  },
-
   data() {
     return {
       input: '',
@@ -41,6 +34,7 @@ export default {
         height: 1000,
         width: 1400,
       },
+      navbarWidth: 256,
     };
   },
 
@@ -61,11 +55,12 @@ export default {
     setGameSize() {
       // Resize game to full window
       this.window.height = window.innerHeight;
-      this.window.width = window.innerWidth;
+      this.window.width = window.innerWidth - this.navbarWidth;
     },
   },
 
   created() {
+    this.userAddress = localStorage.getItem('userAddress');
     this.setGameSize();
     this.addEventListeners();
     Unity.on('progress', (percent) => console.log('Unity Loaded: ', percent))

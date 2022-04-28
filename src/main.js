@@ -13,9 +13,29 @@ import Marketplace from './components/Marketplace';
 import GameHistory from './components/GameHistory';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faChartSimple } from '@fortawesome/free-solid-svg-icons';
+import {
+  faChartSimple,
+  faMap,
+  faSquareParking,
+  faClockRotateLeft,
+  faGaugeSimpleHigh,
+  faBoxesStacked,
+  faTrophy,
+  faStore,
+  faCoins,
+} from '@fortawesome/free-solid-svg-icons';
 
-library.add(faChartSimple);
+library.add(
+  faChartSimple,
+  faMap,
+  faSquareParking,
+  faClockRotateLeft,
+  faGaugeSimpleHigh,
+  faBoxesStacked,
+  faTrophy,
+  faStore,
+  faCoins
+);
 
 Vue.config.productionTip = false;
 
