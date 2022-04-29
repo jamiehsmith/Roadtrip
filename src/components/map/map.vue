@@ -25,6 +25,13 @@ export default {
     Unity: UnityWebgl.vueComponent,
   },
 
+  props: {
+    userAddress: {
+      type: String,
+      required: true,
+    },
+  },
+
   data() {
     return {
       input: '',

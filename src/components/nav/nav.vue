@@ -7,6 +7,14 @@
           Road Trip
         </h5>
       </a>
+      <div class="info-box">
+        <div class="info-box__item top">
+          <span>2nd Gear</span>
+          <span>APR: 35%</span>
+        </div>
+        <div class="info-box__item center">$1200</div>
+        <div class="info-box__item bottom">Weekly Rewards: 353 ></div>
+      </div>
       <el-menu
         default-active="2"
         background-color="#545c64"
@@ -15,8 +23,8 @@
         :router="true"
       >
         <el-menu-item
-          :class="{ active: isActiveTab('dashboard') }"
           index="dashboard"
+          :class="{ 'is-active': activeTab === '/' }"
         >
           <font-awesome-icon
             class="nav-icon"
@@ -24,49 +32,37 @@
           />
           <span>Dashboard</span>
         </el-menu-item>
-        <el-menu-item :class="{ active: isActiveTab('map') }" index="map">
+        <el-menu-item index="map">
           <font-awesome-icon class="nav-icon" icon="fa-solid fa-map" />
           <span>Map</span>
         </el-menu-item>
-        <el-menu-item :class="{ active: isActiveTab('garage') }" index="garage">
+        <el-menu-item index="garage">
           <font-awesome-icon
             class="nav-icon"
             icon="fa-solid fa-square-parking"
           />
           <span>Garage</span>
         </el-menu-item>
-        <el-menu-item
-          :class="{ active: isActiveTab('inventory') }"
-          index="inventory"
-        >
+        <el-menu-item index="inventory">
           <font-awesome-icon
             class="nav-icon"
             icon="fa-solid fa-boxes-stacked"
           />
           <span>Inventory</span>
         </el-menu-item>
-        <el-menu-item :class="{ active: isActiveTab('pools') }" index="pools">
+        <el-menu-item index="pools">
           <font-awesome-icon class="nav-icon" icon="fa-solid fa-coins" />
           <span>Pools</span>
         </el-menu-item>
-        <el-menu-item
-          :class="{ active: isActiveTab('prize-games') }"
-          index="prize-games"
-        >
+        <el-menu-item index="prize-games">
           <font-awesome-icon class="nav-icon" icon="fa-solid fa-trophy" />
           <span>Prize Games</span>
         </el-menu-item>
-        <el-menu-item
-          :class="{ active: isActiveTab('marketplace') }"
-          index="marketplace"
-        >
+        <el-menu-item index="marketplace">
           <font-awesome-icon class="nav-icon" icon="fa-solid fa-store" />
           <span>Marketplace</span>
         </el-menu-item>
-        <el-menu-item
-          :class="{ active: isActiveTab('game-history') }"
-          index="game-history"
-        >
+        <el-menu-item index="game-history">
           <font-awesome-icon
             class="nav-icon"
             icon="fa-solid fa-clock-rotate-left"
@@ -112,6 +108,8 @@ export default {
   width: 256px;
   height: 100vh;
   background: #1f1d2b;
+  border-right: 1px solid #3C4156;
+  overflow: scroll;
   .title {
     display: flex;
     font-size: 24px;
@@ -136,6 +134,32 @@ export default {
   .nav-icon {
     margin-right: 20px;
   }
+  .info-box {
+    height: 175px;
+    background: #ffb800;
+    margin: 0 12px 20px 12px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    color: #ffffff;
+    font-weight: 700;
+    .info-box__item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-basis: 33.3%;
+      &.top {
+        justify-content: space-around;
+        font-size: 16px;
+      }
+      &.center {
+        font-size: 48px;
+      }
+      &.bottom {
+        font-size: 16px;
+      }
+    }
+  }
 }
 
 .el-menu {
@@ -145,12 +169,15 @@ export default {
     text-align: initial;
     font-size: 16px;
     padding-left: 25px !important;
-    margin: 0 15px 0 15px;
+    margin: 1px 15px 1px 15px;
     border-radius: 8px;
     &:not(.active) {
       background-color: #1f1d2b !important;
     }
-    &.active,
+    &.is-active {
+      color: #ffd04b !important;
+    }
+    &.is-active,
     &:hover {
       background-color: #0d8bff !important;
       .el-icon-menu,

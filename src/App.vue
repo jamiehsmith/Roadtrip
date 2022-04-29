@@ -18,7 +18,7 @@
 
 <script>
 import VueMetamask from 'vue-metamask';
-import Nav from './components/Nav';
+import Nav from './components/nav/nav';
 
 export default {
   name: 'App',
@@ -69,6 +69,7 @@ export default {
   display: grid;
   grid-template-columns: 256px auto;
   grid-template-areas: 'sidebar content';
+  background: #252836;
 }
 
 .sidebar {

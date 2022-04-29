@@ -3,14 +3,14 @@ import App from './App.vue';
 import 'element-ui/lib/theme-chalk/index.css';
 import Element from 'element-ui';
 import VueRouter from 'vue-router';
-import Dashboard from './components/Dashboard';
-import Map from './components/Map';
-import Garage from './components/Garage';
-import Inventory from './components/Inventory';
-import Pools from './components/Pools';
-import PrizeGames from './components/PrizeGames';
-import Marketplace from './components/Marketplace';
-import GameHistory from './components/GameHistory';
+import Dashboard from './components/dashboard/dashboard';
+import Map from './components/map/map';
+import Garage from './components/garage/garage';
+import Inventory from './components/inventory/inventory';
+import Pools from './components/pools/pools';
+import PrizeGames from './components/prize-games/prize-games';
+import Marketplace from './components/marketplace/marketplace';
+import GameHistory from './components/game-history/game-history';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import {
@@ -43,15 +43,19 @@ Vue.use(Element);
 Vue.use(VueRouter);
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 
+const props = {
+  userAddress: localStorage.getItem('userAddress'),
+}
+
 const routes = [
-  { path: '/dashboard', alias: '/', component: Dashboard },
-  { path: '/map', component: Map },
-  { path: '/garage', component: Garage },
-  { path: '/inventory', component: Inventory },
-  { path: '/pools', component: Pools },
-  { path: '/prize-games', component: PrizeGames },
-  { path: '/marketplace', component: Marketplace },
-  { path: '/game-history', component: GameHistory },
+  { path: '/dashboard', alias: '/', component: Dashboard, props },
+  { path: '/map', component: Map, props },
+  { path: '/garage', component: Garage, props },
+  { path: '/inventory', component: Inventory, props },
+  { path: '/pools', component: Pools, props },
+  { path: '/prize-games', component: PrizeGames, props },
+  { path: '/marketplace', component: Marketplace, props },
+  { path: '/game-history', component: GameHistory, props },
 ];
 
 // Create the router instance and pass the `routes` option
