@@ -39,7 +39,7 @@ export default {
 
 <style lang="scss" scoped>
 .title-container {
-  padding: 48px 56px 0 37px;
+  padding: 48px 56px 0 0;
   display: flex;
   align-items: center;
   justify-content: space-between;

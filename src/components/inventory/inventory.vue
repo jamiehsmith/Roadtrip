@@ -1,17 +1,19 @@
 <template>
-  <div>
+  <div class="inventory__wrapper">
     <TitleHeader title="Inventory" :userAddress="userAddress" />
     <div class="metric-boxes">
       <div v-for="box in metricBoxes" :key="box.index">
         <MetricBox v-bind="box" />
       </div>
     </div>
+    <AirDrops />
   </div>
 </template>
 
 <script>
 import TitleHeader from '../../components/shared/title-header';
 import MetricBox from '../../components/shared/metric-box';
+import AirDrops from '../../components/inventory/air-drops';
 
 export default {
   name: 'Inventory',
@@ -19,6 +21,7 @@ export default {
   components: {
     TitleHeader,
     MetricBox,
+    AirDrops,
   },
 
   props: {
@@ -66,9 +69,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.metric-boxes {
-  display: flex;
-  justify-content: space-around;
-  margin: 56px 0 74px 40px;
+.inventory__wrapper {
+  padding-left: 37px;
+  .metric-boxes {
+    display: flex;
+    justify-content: space-around;
+    margin: 56px 0 74px 3px;
+  }
 }
 </style>

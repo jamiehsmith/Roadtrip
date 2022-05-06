@@ -1,5 +1,7 @@
 <template>
-  <TitleHeader title="Marketplace" :userAddress="userAddress" />
+  <div class="marketplace__wrapper">
+    <TitleHeader title="Marketplace" :userAddress="userAddress" />
+  </div>
 </template>
 
 <script>
@@ -21,4 +23,8 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.marketplace__wrapper {
+  padding-left: 37px;
+}
+</style>

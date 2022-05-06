@@ -1,5 +1,7 @@
 <template>
-  <TitleHeader title="Pools" :userAddress="userAddress" />
+  <div class="pools">
+    <TitleHeader title="Pools" :userAddress="userAddress" />
+  </div>
 </template>
 
 <script>
@@ -21,4 +23,8 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.pools {
+  padding-left: 37px;
+}
+</style>

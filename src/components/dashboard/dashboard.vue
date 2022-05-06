@@ -1,5 +1,7 @@
 <template>
-  <TitleHeader title="Dashboard" :userAddress="userAddress" />
+  <div class="dashboard__wrapper">
+    <TitleHeader title="Dashboard" :userAddress="userAddress" />
+  </div>
 </template>
 
 <script>
@@ -21,4 +23,8 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.dashboard__wrapper {
+  padding-left: 37px;
+}
+</style>

@@ -1,5 +1,7 @@
 <template>
-  <TitleHeader title="Prize Games" :userAddress="userAddress" />
+  <div class="prize-games__wrapper">
+    <TitleHeader title="Prize Games" :userAddress="userAddress" />
+  </div>
 </template>
 
 <script>
@@ -21,4 +23,8 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.prize-games__wrapper {
+  padding-left: 37px;
+}
+</style>
