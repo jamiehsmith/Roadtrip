@@ -70,6 +70,7 @@ export default {
   grid-template-columns: 256px auto;
   grid-template-areas: 'sidebar content';
   background: #252836;
+  overflow: scroll;
 }
 
 .sidebar {
@@ -78,6 +79,8 @@ export default {
 
 .content {
   grid-area: content;
+  max-width: 100%;
+  color: #ffffff;
 }
 
 .login {

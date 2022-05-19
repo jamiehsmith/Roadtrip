@@ -7,6 +7,8 @@
       </div>
     </div>
     <AirDrops />
+    <TierPoints />
+    <CarUpgrades />
   </div>
 </template>
 
@@ -14,6 +16,8 @@
 import TitleHeader from '../../components/shared/title-header';
 import MetricBox from '../../components/shared/metric-box';
 import AirDrops from '../../components/inventory/air-drops';
+import TierPoints from '../../components/inventory/tier-points';
+import CarUpgrades from '../../components/inventory/car-upgrades';
 
 export default {
   name: 'Inventory',
@@ -22,6 +26,8 @@ export default {
     TitleHeader,
     MetricBox,
     AirDrops,
+    TierPoints,
+    CarUpgrades,
   },
 
   props: {
